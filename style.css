@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --bg-color1:#212529;
+    --bg-color2:#2a2b2d;
+}
+body{
+    min-height: 100vh;
+    background-color: var(--bg-color1);
+    color: #fff;
+    font-family: sans-serif;
+    padding: 0 15px; 
+}
+.header{
+    position: sticky ;
+    top: 0;
+    background-color: var(--bg-color1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 15px 0;
+   
+}
+#input_city{
+    background-color: var(--bg-color2);
+    border: none;
+    padding: 12px;
+    font-size: 16px ;
+}
+#input_city:focus{
+    outline: none;
+}
+#searchBtn, #locationBtn{
+    border: none;
+    background-color: #fff;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+}
