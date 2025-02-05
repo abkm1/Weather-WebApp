@@ -158,6 +158,21 @@ body{
 .sunrise-sunset .item h2{
     margin-top:15px ;
 }
+.card .card-item{
+    display: flex;
+    justify-content: space-between;
+}
+.hourly-forecast{
+    display: grid;
+    grid-template-columns: repeat(8,1fr);
+    column-gap: 10px;
+}
+.hourly-forecast .card{
+    text-align: center;
+}
+hr{
+    margin-bottom: 10px;
+}
 
 .fa-wind{
     font-size: 2em;
