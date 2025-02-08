@@ -167,14 +167,21 @@ function getweatherDetails(name,lat,lon,country,state){
   fetch(FORECAST_API_URL).then(res=>res.json()).then(data=>{
     let hourlyForecast=data.list;
     hourlyForecastCard.innerHTML=`
+
     `;
     for (let i = 0; i <=7; i++) {
       let hrForeCastDate=new Date(hourlyForecast[i].dt_txt);
       let hr=hrForeCastDate.getHours();
       let a='PM';
-      if(hr<12) a='AM';
-      if(hr==0) hr=12;
-      if(hr>12) hr=hr-12;
+      if(hr<12) {
+        a='AM';
+      }
+      if(hr==0){
+        hr=12;
+      } 
+      if(hr>12){
+        hr=hr-12;
+      }
       hourlyForecastCard.innerHTML+=`
       <div class="card">
                     <p>${hr} ${a}</p>
@@ -192,6 +199,7 @@ function getweatherDetails(name,lat,lon,country,state){
         return uniqueForecastDays.push(forecastDate)
       }
    });
+   
    fiveDaysForecastCard.innerHTML='';
    for (let i = 0; i < fiveDaysForecast.length; i++) {
     let date=new Date(fiveDaysForecast[i].dt_txt)
