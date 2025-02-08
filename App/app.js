@@ -199,7 +199,7 @@ function getweatherDetails(name,lat,lon,country,state){
         return uniqueForecastDays.push(forecastDate)
       }
    });
-   
+
    fiveDaysForecastCard.innerHTML='';
    for (let i = 0; i < fiveDaysForecast.length; i++) {
     let date=new Date(fiveDaysForecast[i].dt_txt)
@@ -209,7 +209,7 @@ function getweatherDetails(name,lat,lon,country,state){
                             <img src="https://openweathermap.org/img/wn/${fiveDaysForecast[i].weather[0].icon}.png" alt="">
                             <span>${(fiveDaysForecast[i].main.temp - 273.15).toFixed(2)}&deg;C</span>
                         </div>
-                        <p>${date.getDate()} ${months[date.getMonth()]}</p>
+                        <p>${date.getDate()}, ${months[date.getMonth()]}</p>
                         <p>${days[date.getDay()]}</p>
      </div>
     `;

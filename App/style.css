@@ -4,37 +4,41 @@
     box-sizing: border-box;
 }
 :root{
-    --bg-color1:#212529;
-    --bg-color2:#2a2b2d;
-    --aqi-1:#d4e157;
-    --aqi-2:#ffee58;
-    --aqi-3:#ffca28;
-    --aqi-4:#ff7043;
-    --aqi-5:#ef5350;
+    --bg-color1:#e3f2fd;
+    --bg-color2:#a9e0ea;
+    --text-color:#222;
+    --primary-color:#29323f;
+    --secondary-color:#99b630;
+    --aqi-1:#6fbb71;
+    --aqi-2:#fff59d;
+    --aqi-3:#ffcc80;
+    --aqi-4:#ff8a80;
+    --aqi-5:#e57373;
 }
 body{
     min-height: 100vh;
     background-color: var(--bg-color1);
-    color: #fff;
+    color: var(--text-color);
     font-family: sans-serif;
     padding: 0 15px; 
 }
 .header{
-    position: sticky ;
+    position:sticky ;
     top: 0;
-    background-color: var(--bg-color1);
+    width: 100%;
+    background-color: var(--primary-color);
+    color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-    padding: 15px 0;
-   
+    padding: 15px ;
 }
 #input_city{
     background-color: var(--bg-color2);
-    border: none;
+    border: 1px solid var(--primary-color);
     padding: 12px;
-    font-size: 16px ;
+    font-size: 16px;
     border-radius: 25px;
 }
 #input_city:focus{
@@ -42,25 +46,31 @@ body{
 }
 #searchBtn, #locationBtn{
     border: none;
-    background-color: #fff;
+    background-color: var(--secondary-color);
+    color: white;
     padding: 12px;
     font-size: 16px;
     border-radius: 25px;
     cursor: pointer;
+    transition: 0.3s;
+}
+#searchBtn:hover, #locationBtn:hover{
+    background-color: #e68900;
 }
 .card{
     background-color: var(--bg-color2);
     padding: 15px;
-    border-radius: 15px;
+    border-radius: 30px;
     margin-bottom: 15px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 .card p{
     font-size: 14px;
-    color: #999;
+    color: var(--text-color);
 }
 .card h2{
     font-size: 32px;
-    font-weight: 500px;
+    font-weight: 500;
 }
 .weather-data{
     display: grid;
@@ -68,7 +78,7 @@ body{
     gap:14px;
 }
 .weather-left{
-    grid-column:span 1 ;
+    grid-column:span 1;
 }
 .current-weather{
     display: flex;
@@ -79,7 +89,7 @@ body{
     margin: 7px 0;
 }
 .current-weather p{
-    color: #fff;
+    color: var(--text-color);
 }
 .card-footer p{
     font-size: 15px;
@@ -90,19 +100,16 @@ body{
     grid-template-columns: repeat(3,1fr);
     place-items: center;
     margin-bottom: 16px;
-
 }
 .icon-wrapper{
     display: flex;
     align-items: center;
 }
-
 .weather-right{
     grid-column: span 3;
 }
 .weather-right h2{
     margin-bottom: 10px;
-
 }
 .highlights{
     display: grid;
@@ -119,28 +126,17 @@ body{
     padding: 5px 10px;
     border-radius: 13px;
 }
-.aqi-1{
-   background-color: var(--aqi-1); 
-}
-.aqi-2{
-    background-color: var(--aqi-2); 
- }
- .aqi-3{
-    background-color: var(--aqi-3); 
- }
- .aqi-4{
-    background-color: var(--aqi-4); 
- }
- .aqi-5{
-    background-color: var(--aqi-5); 
- }
-
- .highlights .card:nth-of-type(1),.highlights  .card:nth-of-type(2){
+.aqi-1{ background-color: var(--aqi-1); }
+.aqi-2{ background-color: var(--aqi-2); }
+.aqi-3{ background-color: var(--aqi-3); }
+.aqi-4{ background-color: var(--aqi-4); }
+.aqi-5{ background-color: var(--aqi-5); }
+.highlights .card:nth-of-type(1), .highlights .card:nth-of-type(2){
   grid-column: span 2;
- }
+}
 .air-indices{
     display: grid;
-    grid-template-columns:repeat(4,1fr) ;
+    grid-template-columns:repeat(4,1fr);
     place-items: center;
 }
 .air-indices p{
@@ -156,7 +152,7 @@ body{
     gap:10px;
 }
 .sunrise-sunset .item h2{
-    margin-top:15px ;
+    margin-top:15px;
 }
 .card .card-item{
     display: flex;
@@ -176,13 +172,12 @@ hr{
 .fa-wind{
     font-size: 2em;
 }
-
 @media(max-width:1100px){
     .weather-data{
         grid-template-columns: repeat(3,1fr);
     }
     .weather-right{
-        grid-column:span 2 ;
+        grid-column:span 2;
     }
     .highlights{
         grid-template-columns: repeat(3,1fr);
@@ -199,6 +194,6 @@ hr{
          grid-column: span 2;
     }
     .air-indices{
-        grid-template-columns:repeat(3,1fr) ;
+        grid-template-columns:repeat(3,1fr);
     }
 }
