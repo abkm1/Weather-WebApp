@@ -5,14 +5,20 @@ const currentWeatherCard=document.querySelectorAll('.weather-left .card')[0];
 const fiveDaysForecastCard=document.querySelector('.day-forecast');
 const apiCard=document.querySelectorAll('.highlights .card')[0];
 const sunriseCard=document.querySelectorAll('.highlights .card')[1];
-const aqiList=['Good','Fair','Moderate','Poor','Very Poor'];
-const api_key='34cd32311c59c94e5a9aeab9358f2b38';
+const aqiList=[
+  'Good',
+  'Fair',
+  'Moderate',
+  'Poor',
+  'Very Poor'];
+
 const humidityVal=document.getElementById('humidityVal');
 const pressureVal=document.getElementById('pressureVal');
 const visibilityVal=document.getElementById('visibilityVal');
 const windSpeedVal=document.getElementById('windSpeedVal');
 const hourlyForecastCard = document.querySelector('.hourly-forecast')
 const feelsVal=document.getElementById('feelsVal');
+const api_key='34cd32311c59c94e5a9aeab9358f2b38';
 
 //events
 inputCity.addEventListener('keyup',e=>e.key==='Enter' && getCityCoordinates());
@@ -37,10 +43,12 @@ function getweatherDetails(name,lat,lon,country,state){
    ],
 
    months = [
-    "January", "February", "March",
-     "April", "May", "June", 
-    "July", "August", "September", 
-    "October", "November", "December"
+    "January", "February", 
+    "March","April",
+     "May", "June", 
+     "July", "August", 
+     "September", "October", 
+     "November", "December"
   ];
   
   fetch(AIR_POLUTION_API_URL).then(res=>res.json()).then(data=>{
@@ -229,6 +237,8 @@ function getUserCoordinates(){
       let {name , country , state}=data[0];
       getweatherDetails(name , latitude,longitude,country,state);
       
+    }).catch(()=>{
+      alert("Faieled to fetch user's info")
     })
   }, error =>{
     if(error.code===error.PERMISSION_DENIED){
